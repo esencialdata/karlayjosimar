@@ -17,7 +17,7 @@ export default function SectionAbout() {
                 className="w-[85%] md:w-[60%] max-w-[600px] relative -mt-[12vh] z-20 shadow-2xl mx-auto"
             >
                 <Image
-                    src="/1.jpeg"
+                    src="/IMG_1822.jpg"
                     alt="Karla y Josimar"
                     width={1200}
                     height={800}

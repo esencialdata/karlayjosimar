@@ -96,7 +96,7 @@ export default function RSVP() {
                 {/* Background Image / Overlay */}
                 <div
                     className="absolute inset-0 bg-cover md:bg-contain bg-center bg-no-repeat z-0 transition-all duration-700"
-                    style={{ backgroundImage: "url('/gift-background.jpg')" }}
+                    style={{ backgroundImage: "url('/5.jpeg')" }}
                 />
                 <div className="absolute inset-0 bg-black/40 md:bg-black/30 z-10" />
 
