@@ -70,7 +70,7 @@ export default function SectionAbout() {
                         <div className="my-2 md:my-0 md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-20 mix-blend-multiply">
                             <span
                                 className="text-5xl md:text-7xl text-[#4A4641] opacity-80 -rotate-12 block"
-                                style={{ fontFamily: 'var(--font-great-vibes), cursive' }}
+                                style={{ fontFamily: 'var(--font-pinyon), cursive' }}
                             >
                                 y
                             </span>
