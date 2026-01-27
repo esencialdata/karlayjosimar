@@ -9,7 +9,13 @@ export default function SectionAbout() {
 
             {/* 1. PhotoStrip */}
             {/* 1. PhotoStrip - Now Floating & Overlapping Hero */}
-            <div className="w-[85%] md:w-[60%] max-w-[600px] relative -mt-[12vh] z-20 shadow-2xl mx-auto">
+            <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+                viewport={{ once: true, margin: "-100px" }}
+                className="w-[85%] md:w-[60%] max-w-[600px] relative -mt-[12vh] z-20 shadow-2xl mx-auto"
+            >
                 <Image
                     src="/1.jpeg"
                     alt="Karla y Josimar"
@@ -19,13 +25,13 @@ export default function SectionAbout() {
                     sizes="(max-width: 768px) 85vw, 600px"
                     priority
                 />
-            </div>
+            </motion.div>
             {/* 2. AboutCard (Bloque beige) */}
             <div className="relative z-10 w-auto mx-4 md:w-full md:mx-0 max-w-[760px] bg-[#F9F7F2] px-8 py-10 md:py-16 md:px-14 shadow-sm text-center mt-8 md:rounded-none">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
+                    transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
                     viewport={{ once: true }}
                     className="flex flex-col items-center"
                 >

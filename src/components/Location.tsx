@@ -10,9 +10,9 @@ export default function Location() {
             {/* Single Reception Block */}
             <div className="bg-[#A8988A] text-white py-24 px-6 flex flex-col items-center text-center mx-4 mb-4 mt-4 md:w-full md:mx-0 md:mb-0 md:mt-0 justify-center">
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1, ease: "easeOut" }}
                     viewport={{ once: true }}
                     className="max-w-md space-y-6 flex flex-col items-center"
                 >

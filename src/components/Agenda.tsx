@@ -34,9 +34,9 @@ export default function Agenda() {
                         return (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, x: -10 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.6, delay: index * 0.1 }}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 1, delay: index * 0.2, ease: "easeOut" }}
                                 viewport={{ once: true }}
                                 className="relative flex items-center gap-8 md:gap-0 md:justify-between group"
                             >

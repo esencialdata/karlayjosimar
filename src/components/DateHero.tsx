@@ -24,7 +24,7 @@ export default function DateHero() {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1, ease: "easeOut" }}
+                        transition={{ duration: 1.2, ease: "easeOut" }}
                         viewport={{ once: true }}
                         className="flex flex-col items-center text-center text-white mix-blend-screen px-6"
                     >
@@ -45,11 +45,11 @@ export default function DateHero() {
                             </svg>
                         </div>
 
-                        {/* 28 - Medium Number */}
+                        {/* 04 - Medium Number */}
                         <span
                             className="font-sans text-6xl md:text-8xl leading-none mb-0 md:mb-1 font-light tracking-tight"
                         >
-                            28
+                            04
                         </span>
 
                         {/* ABRIL - The Protagonist */}

@@ -30,9 +30,9 @@ export default function DressCode() {
                 {/* Icons Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 mb-16 w-full">
                     <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, ease: "easeOut" }}
                         viewport={{ once: true }}
                         className="flex flex-col items-center gap-6"
                     >
@@ -50,9 +50,9 @@ export default function DressCode() {
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
                         viewport={{ once: true }}
                         className="flex flex-col items-center gap-6"
                     >
