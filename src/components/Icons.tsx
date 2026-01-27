@@ -117,12 +117,12 @@ export const IconToast = (props: LucideProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
     >
-        <path d="M8 22h8" />
-        <path d="M12 15v7" />
-        <path d="M5.8 10.5C4.8 11.6 3.9 13.9 4 16h16c.1-2.1-.8-4.4-1.8-5.5" />
-        <path d="M9 3v4" />
-        <path d="M15 3v4" />
-        <path d="M12 3v3" />
+        {/* The Iceberg - irregular and jagged peaks */}
+        <path d="M6 12l2-7l4 3l3-5l3 9" />
+        {/* Underwater mass - asymmetric */}
+        <path d="M6 12l1 7l4 2l6-4l1-5" />
+        {/* The Water Line */}
+        <path d="M3 12h18" />
     </svg>
 );
 
