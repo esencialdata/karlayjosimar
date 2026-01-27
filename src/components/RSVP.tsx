@@ -66,7 +66,7 @@ export default function RSVP() {
                         nuestro hogar ya tiene todo, pero si quieres darnos un regalo, puedes hacerlo dentro de este sobre, sin embargo tu presencia es lo más importante
                     </p>
 
-                    <p className="font-serif italic text-gray-400 text-xs mt-4">
+                    <p className="font-serif italic text-gray-500 text-lg md:text-xl mt-6">
                         ¡Gracias por su amor y apoyo!
                     </p>
                 </motion.div>
