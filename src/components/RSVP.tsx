@@ -92,7 +92,7 @@ export default function RSVP() {
 
 
             {/* RSVP Form Image Background Parallax */}
-            <div className="relative w-auto min-h-screen flex items-center justify-center py-20 mx-4 mb-4 md:w-full md:mx-0 md:mb-0 overflow-hidden bg-[#ebebeb]">
+            <div className="relative w-auto min-h-screen flex items-start justify-center pt-[12vh] md:pt-[15vh] pb-20 mx-4 mb-4 md:w-full md:mx-0 md:mb-0 overflow-hidden bg-[#ebebeb]">
                 {/* Background Image / Overlay */}
                 <div
                     className="absolute inset-0 bg-cover md:bg-contain bg-center bg-no-repeat z-0 transition-all duration-700"
