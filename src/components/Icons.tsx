@@ -178,12 +178,8 @@ export const IconMusic = (props: LucideProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
     >
-        <path d="M12 4a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
-        <path d="M18 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
-        <path d="M12 4v7l-5 4" />
-        <path d="M18 10v7l-5-4" />
-        <path d="M12 11h6" />
-        <path d="M7 15v5" />
-        <path d="M13 17v5" />
+        <path d="M9 18V5l12-2v13" />
+        <circle cx="6" cy="18" r="3" />
+        <circle cx="18" cy="16" r="3" />
     </svg>
 );
