@@ -44,7 +44,7 @@ export default function SectionAbout() {
                                     xlinkHref="#curve"
                                     startOffset="50%"
                                     textAnchor="middle"
-                                    className="font-sans text-[10px] md:text-xs tracking-[0.4em] uppercase fill-[#8C8884]"
+                                    className="font-sans text-sm md:text-lg tracking-[0.4em] uppercase fill-[#8C8884]"
                                 >
                                     Nosotros
                                 </textPath>
