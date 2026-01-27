@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, Playfair_Display, Pinyon_Script } from "next/font/google";
+import { Space_Grotesk, Inter, Playfair_Display, Pinyon_Script, Great_Vibes } from "next/font/google";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -27,9 +27,25 @@ const pinyon = Pinyon_Script({
   weight: ["400"],
 });
 
+const greatVibes = Great_Vibes({
+  variable: "--font-great-vibes",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
 export const metadata: Metadata = {
-  title: "Boda Karla & Josimar",
-  description: "Estás invitado a celebrar con nosotros.",
+  title: "Boda Karla & Josimar | 21.10.2024",
+  description: "Acompáñanos a celebrar nuestro gran día. Detalles, ubicación y confirmación de asistencia.",
+  keywords: ["Boda", "Karla y Josimar", "Invitación de Boda", "Eventos Monterrey"],
+  authors: [{ name: "Karla y Josimar" }],
+  openGraph: {
+    title: "Boda Karla & Josimar",
+    description: "Estás invitado a celebrar con nosotros.",
+    url: "https://karlayjosimar.com",
+    siteName: "Boda Karla & Josimar",
+    locale: "es_MX",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -40,9 +56,11 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth">
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} ${playfair.variable} ${pinyon.variable} antialiased bg-black text-white overflow-x-hidden`}
+        className={`${spaceGrotesk.variable} ${inter.variable} ${playfair.variable} ${pinyon.variable} ${greatVibes.variable} antialiased bg-[#F0F0F0] text-black overflow-x-hidden`}
       >
-        {children}
+        <div className="mx-auto w-full max-w-5xl bg-white min-h-screen shadow-2xl relative">
+          {children}
+        </div>
       </body>
     </html>
   );

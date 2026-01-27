@@ -1,34 +1,69 @@
-import { FadeIn } from "./ui/FadeIn";
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
+import { IconCeremony, IconToast, IconReception, IconParty } from "./Icons";
 
 export default function Agenda() {
     const events = [
-        { time: "3:30 PM", title: "Recepción", desc: "Bienvenida y cóctel" },
-        { time: "3:45 PM", title: "Ceremonia", desc: "El momento del 'Sí'" },
-        { time: "5:30 PM", title: "Cena", desc: "Celebración gastronómica" },
-        { time: "9:00 PM", title: "Fiesta", desc: "Baile y celebración" },
+        { time: "3:30 PM", title: "Recepción", icon: IconReception },
+        { time: "3:45 PM", title: "Ceremonia Religiosa", icon: IconCeremony },
     ];
 
     return (
-        <section className="py-24 px-6 w-full max-w-3xl mx-auto">
-            <FadeIn>
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Timeline</h2>
-                </div>
-            </FadeIn>
+        <section className="py-24 px-6 w-auto bg-off-white flex flex-col items-center mx-4 mb-4 md:w-full md:mx-0 md:mb-0">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="text-center mb-16"
+            >
+                <h2 className="font-display text-5xl md:text-6xl uppercase tracking-widest text-dark-gray">
+                    Itinerario
+                </h2>
+                <div className="w-16 h-px bg-taupe mx-auto mt-6" />
+            </motion.div>
 
-            <div className="relative border-l border-neutral-800 ml-6 md:ml-auto md:mx-auto md:w-full max-w-xl space-y-12">
-                {events.map((event, index) => (
-                    <FadeIn key={index} delay={0.1 * index} className="relative pl-8 md:pl-12">
-                        <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-black border border-neutral-600 rounded-full"></div>
-                        <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 md:gap-8">
-                            <span className="text-xl md:text-2xl font-light text-white tabular-nums">{event.time}</span>
-                            <div className="flex-1">
-                                <h3 className="text-lg font-medium tracking-wide uppercase text-neutral-300">{event.title}</h3>
-                                <p className="text-neutral-500 text-sm">{event.desc}</p>
-                            </div>
-                        </div>
-                    </FadeIn>
-                ))}
+            <div className="relative max-w-lg w-full">
+                {/* Vertical Line */}
+                <div className="absolute left-[27px] md:left-1/2 top-4 bottom-4 w-px bg-taupe/30 -translate-x-1/2" />
+
+                <div className="space-y-12">
+                    {events.map((event, index) => {
+                        const Icon = event.icon;
+                        return (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, x: -10 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.6, delay: index * 0.1 }}
+                                viewport={{ once: true }}
+                                className="relative flex items-center gap-8 md:gap-0 md:justify-between group"
+                            >
+                                {/* Time (Left on Desktop, Right of Icon on Mobile) */}
+                                <div className="hidden md:block w-[45%] text-right">
+                                    <span className="font-serif italic text-2xl text-taupe">{event.time}</span>
+                                </div>
+
+                                {/* Icon (Center) */}
+                                <div className="relative z-10 w-[54px] h-[54px] bg-off-white border border-taupe rounded-full flex items-center justify-center shrink-0">
+                                    <Icon className="w-6 h-6 text-dark-gray" strokeWidth={1} />
+                                </div>
+
+                                {/* Title (Right on Desktop, Right of Icon on Mobile) */}
+                                <div className="w-[calc(100%-70px)] md:w-[45%] text-left pl-2 md:pl-0">
+                                    <h3 className="font-sans text-sm md:text-base uppercase tracking-[0.2em] text-dark-gray font-medium">
+                                        {event.title}
+                                    </h3>
+                                    {/* Mobile Only Time */}
+                                    <span className="md:hidden font-serif italic text-lg text-taupe mt-1 block">
+                                        {event.time}
+                                    </span>
+                                </div>
+                            </motion.div>
+                        );
+                    })}
+                </div>
             </div>
         </section>
     );

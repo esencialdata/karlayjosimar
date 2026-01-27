@@ -1,74 +1,99 @@
-import { FadeIn } from "./ui/FadeIn";
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
 
-const DressIcon = () => (
-    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="text-white">
-        <path d="M12 2L8 6H16L12 2Z" fill="currentColor" />
-        <path d="M8 6H16V10C16 12 15 13 12 14C9 13 8 12 8 10V6Z" />
-        <path d="M8 10L4 22H20L16 10" />
-    </svg>
-); // Simplified abstract shape, I'll use a better path below.
-
-const WomanIcon = () => (
-    <svg width="48" height="48" viewBox="0 0 24 24" strokeWidth="0.8" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        <path d="M8 20v-10l-2 -4h12l-2 4v10" />
-        <path d="M12 4a3 3 0 1 0 0 -6a3 3 0 0 0 0 6z" transform="translate(0 2)" />
-    </svg>
-);
-
-const ManIcon = () => (
-    <svg width="48" height="48" viewBox="0 0 24 24" strokeWidth="0.8" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        <path d="M12 14m-12 0a2 2 0 1 0 24 0a2 2 0 1 0 -24 0" fill="currentColor" opacity="0.1" stroke="none" />
-        <path d="M6 9v11a1 1 0 0 0 1 1h2.5v-5h5v5h2.5a1 1 0 0 0 1 -1v-11" />
-        <path d="M9 9l3 3l3 -3" />
-        <path d="M12 6l-3 3h6z" />
-    </svg>
-); // Suit icon sort of
 
 export default function DressCode() {
+    const colors = [
+        { name: "All Black", hex: "#111111" },
+    ];
+
     return (
-        <section className="py-24 px-6 bg-neutral-900/40 border-y border-neutral-900">
-            <div className="max-w-5xl mx-auto">
-                <FadeIn>
-                    <div className="text-center mb-16 space-y-2">
-                        <span className="text-xs uppercase tracking-[0.3em] text-neutral-500">Importante</span>
-                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Dress Code</h2>
-                        <p className="text-xl text-white font-serif italic mt-2">All Black Obligatorio</p>
-                    </div>
-                </FadeIn>
+        <section id="dresscode" className="py-24 px-6 bg-off-white border-t border-taupe/10 mx-4 mb-4 md:mx-0 md:mb-0">
+            <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
 
-                <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-                    <FadeIn delay={0.2}>
-                        <div className="flex flex-col items-center text-center space-y-6 p-8 border border-neutral-800/50 rounded hover:border-neutral-700 transition-colors">
-                            <WomanIcon />
-                            <h3 className="text-lg font-medium tracking-widest uppercase">Mujeres</h3>
-                            <ul className="space-y-3 text-neutral-400 font-light text-sm">
-                                <li>Vestido largo <strong className="text-white font-normal">All Black</strong></li>
-                                <li>Elegancia y sobriedad</li>
-                                <li>Evitar estampados o aplicaciones de color</li>
-                            </ul>
-                        </div>
-                    </FadeIn>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
+                    className="mb-16 space-y-4"
+                >
+                    <h2 className="font-display text-4xl md:text-6xl uppercase tracking-widest text-dark-gray">
+                        Código de Vestimenta
+                    </h2>
+                    <p className="font-script text-4xl text-taupe">
+                        All Black Obligatorio
+                    </p>
+                </motion.div>
 
-                    <FadeIn delay={0.4}>
-                        <div className="flex flex-col items-center text-center space-y-6 p-8 border border-neutral-800/50 rounded hover:border-neutral-700 transition-colors">
-                            <ManIcon />
-                            <h3 className="text-lg font-medium tracking-widest uppercase">Hombres</h3>
-                            <ul className="space-y-3 text-neutral-400 font-light text-sm">
-                                <li>Traje formal <strong className="text-white font-normal">All Black</strong></li>
-                                <li>Camisa negra, corbata negra</li>
-                                <li>Evitar colores claros</li>
-                            </ul>
+                {/* Icons Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 mb-16 w-full">
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8 }}
+                        viewport={{ once: true }}
+                        className="flex flex-col items-center gap-6"
+                    >
+                        <div className="w-24 h-24 md:w-32 md:h-32 flex items-center justify-center border border-taupe/30 rounded-full bg-white shadow-sm">
+                            <img src="/dress.png" alt="Dress icon" className="w-12 md:w-16 h-auto" />
                         </div>
-                    </FadeIn>
+                        <div className="space-y-4">
+                            <h3 className="font-sans text-sm uppercase tracking-[0.2em] font-medium border-b border-taupe/20 pb-2 mb-2 inline-block">Mujeres</h3>
+                            <div className="font-serif italic text-gray-500 text-sm space-y-1">
+                                <p className="font-medium text-dark-gray">Vestido largo All Black</p>
+                                <p>Elegancia y sobriedad</p>
+                                <p>Evitar estampados o aplicaciones de color</p>
+                            </div>
+                        </div>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8 }}
+                        viewport={{ once: true }}
+                        className="flex flex-col items-center gap-6"
+                    >
+                        <div className="w-24 h-24 md:w-32 md:h-32 flex items-center justify-center border border-taupe/30 rounded-full bg-white shadow-sm">
+                            <img src="/Black-Suit-Transparent-Image.png" alt="Suit icon" className="w-12 md:w-16 h-auto" />
+                        </div>
+                        <div className="space-y-4">
+                            <h3 className="font-sans text-sm uppercase tracking-[0.2em] font-medium border-b border-taupe/20 pb-2 mb-2 inline-block">Hombres</h3>
+                            <div className="font-serif italic text-gray-500 text-sm space-y-1">
+                                <p className="font-medium text-dark-gray">Traje formal All Black</p>
+                                <p>Camisa negra, corbata negra</p>
+                                <p>Evitar colores claros</p>
+                            </div>
+                        </div>
+                    </motion.div>
                 </div>
 
-                <FadeIn delay={0.6} className="mt-12 text-center">
-                    <p className="text-neutral-500 text-sm max-w-lg mx-auto">
-                        Agradecemos respetar el código de vestimenta para mantener la estética de la noche.
-                    </p>
-                </FadeIn>
+                {/* Color Palette - Single Black Swatch */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    viewport={{ once: true }}
+                    className="space-y-6"
+                >
+                    <span className="font-sans text-xs uppercase tracking-[0.3em] text-taupe block">
+                        Paleta de Color
+                    </span>
+                    <div className="flex gap-4 md:gap-6 justify-center">
+                        {colors.map((c, i) => (
+                            <div key={i} className="flex flex-col items-center gap-2">
+                                <div
+                                    className="w-16 h-16 md:w-20 md:h-20 rounded-full border border-gray-200 shadow-inner ring-4 ring-black/5"
+                                    style={{ backgroundColor: c.hex }}
+                                />
+                                <span className="text-[10px] uppercase tracking-widest text-gray-400">{c.name}</span>
+                            </div>
+                        ))}
+                    </div>
+                </motion.div>
+
             </div>
         </section>
     );
