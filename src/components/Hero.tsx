@@ -34,7 +34,7 @@ export default function Hero() {
                         src="/monogram.svg"
                         alt="K&J Monogram"
                         fill
-                        className="object-contain invert brightness-0"
+                        className="object-contain"
                         priority
                     />
                 </motion.div>
