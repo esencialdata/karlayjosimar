@@ -23,16 +23,21 @@ export default function Hero() {
             {/* OverlayContent */}
             <div className="hero-overlay relative z-10 w-full h-full flex flex-col items-center justify-end pb-[15vh] md:justify-center md:pb-0 md:pt-[10vh]">
 
-                {/* MonogramText: 'KJ' Serif elegante */}
-                <motion.h1
-                    className="monogram font-display text-white text-[100px] sm:text-[140px] md:text-[220px] leading-none tracking-tight drop-shadow-lg select-none mix-blend-overlay md:mix-blend-normal"
-                    style={{ fontFamily: 'Didot, "Didot LT STD", "Bodoni MT", "Bodoni 72", serif' }}
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1.2, ease: "easeOut" }}
+                {/* Monogram SVG */}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1.5, ease: "easeOut" }}
+                    className="relative w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] md:w-[320px] md:h-[320px] select-none mix-blend-screen drop-shadow-2xl"
                 >
-                    <span>K</span><span style={{ marginLeft: '-0.1em' }}>J</span>
-                </motion.h1>
+                    <Image
+                        src="/monogram.svg"
+                        alt="K&J Monogram"
+                        fill
+                        className="object-contain invert brightness-0"
+                        priority
+                    />
+                </motion.div>
 
                 {/* ChevronIcon: Flecha minimalista */}
                 <motion.div
