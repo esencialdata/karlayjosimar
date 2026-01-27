@@ -34,7 +34,7 @@ const greatVibes = Great_Vibes({
 });
 
 export const metadata: Metadata = {
-  title: "Boda Karla & Josimar | 21.10.2024",
+  title: "Boda Karla & Josimar | 04.04.2026",
   description: "Acompáñanos a celebrar nuestro gran día. Detalles, ubicación y confirmación de asistencia.",
   keywords: ["Boda", "Karla y Josimar", "Invitación de Boda", "Eventos Monterrey"],
   authors: [{ name: "Karla y Josimar" }],

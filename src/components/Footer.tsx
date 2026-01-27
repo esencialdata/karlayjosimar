@@ -11,7 +11,7 @@ export default function Footer() {
                         Gracias por ser parte de nuestra historia
                     </p>
                     <div className="text-[10px] uppercase tracking-[0.3em] text-gray-400 mt-12">
-                        21 Octubre 2024
+                        04 Abril 2026
                     </div>
                 </div>
             </FadeIn>
