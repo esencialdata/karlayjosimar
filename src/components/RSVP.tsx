@@ -1,14 +1,20 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, Gift } from "lucide-react";
+import { Send, Gift, Mail } from "lucide-react";
 
 export default function RSVP() {
     const [name, setName] = useState("");
-
     const [note, setNote] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+
+    React.useEffect(() => {
+        const submitted = localStorage.getItem("rsvpSubmitted");
+        if (submitted) {
+            setIsSubmitted(true);
+        }
+    }, []);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -30,8 +36,7 @@ export default function RSVP() {
             });
 
             setIsSubmitted(true);
-            // Optional: WhatsApp fallback is less elegant if using Google Forms, 
-            // but we can ask if they want both.
+            localStorage.setItem("rsvpSubmitted", "true");
         } catch (error) {
             console.error("Error submitting to Google Forms:", error);
             // Fallback to WhatsApp if Google Forms fails
@@ -58,27 +63,42 @@ export default function RSVP() {
                         <Gift className="w-8 h-8 text-taupe" strokeWidth={1} />
                     </div>
 
-                    <h2 className="font-script text-4xl md:text-5xl text-dark-gray">
-                        Sugerencia de Regalo
+                    <h2 className="font-display text-4xl md:text-5xl text-dark-gray flex flex-col items-center gap-2">
+                        <span className="uppercase tracking-[0.3em] text-lg md:text-2xl opacity-70">Sugerencia de</span>
+                        <span className="text-7xl md:text-9xl -mt-4 md:-mt-6" style={{ fontFamily: 'var(--font-pinyon), cursive' }}>
+                            Regalos
+                        </span>
                     </h2>
 
                     <p className="font-sans text-sm md:text-base leading-relaxed text-gray-600">
-                        nuestro hogar ya tiene todo, pero si quieres darnos un regalo, puedes hacerlo dentro de este sobre, sin embargo tu presencia es lo más importante
+                        Nuestro hogar ya tiene todo, pero si quieres darnos un regalo, puedes hacerlo dentro de este sobre, sin embargo tu presencia es lo más importante
                     </p>
 
                     <p className="font-serif italic text-gray-500 text-lg md:text-xl mt-6">
                         ¡Gracias por su amor y apoyo!
                     </p>
+
+                    <div className="pt-4">
+                        <motion.button
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                            className="inline-flex items-center justify-center w-12 h-12 bg-taupe text-white rounded-full hover:bg-taupe/90 transition-colors shadow-lg"
+                        >
+                            <Mail className="w-5 h-5" strokeWidth={1.5} />
+                        </motion.button>
+                    </div>
                 </motion.div>
             </div>
 
 
             {/* RSVP Form Image Background Parallax */}
-            <div className="relative w-auto min-h-screen flex items-center justify-center py-20 mx-4 mb-4 md:w-full md:mx-0 md:mb-0 overflow-hidden">
+            <div className="relative w-auto min-h-screen flex items-center justify-center py-20 mx-4 mb-4 md:w-full md:mx-0 md:mb-0 overflow-hidden bg-[#ebebeb]">
                 {/* Background Image / Overlay */}
-                <div className="absolute inset-0 bg-dark-gray z-0">
-                    <div className="absolute inset-0 bg-black/40" />
-                </div>
+                <div
+                    className="absolute inset-0 bg-cover md:bg-contain bg-center bg-no-repeat z-0 transition-all duration-700"
+                    style={{ backgroundImage: "url('/gift-background.jpg')" }}
+                />
+                <div className="absolute inset-0 bg-black/40 md:bg-black/30 z-10" />
 
                 <div className="relative z-10 w-full max-w-xl px-6">
                     <motion.div
@@ -86,68 +106,59 @@ export default function RSVP() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
-                        className="bg-white p-8 md:p-12 shadow-2xl relative"
+                        className="relative"
                     >
-                        {/* Border Frame */}
-                        <div className="absolute inset-2 border border-taupe/30 pointer-events-none" />
-
                         {isSubmitted ? (
                             <div className="py-12 text-center space-y-6">
                                 <motion.div
                                     initial={{ scale: 0 }}
                                     animate={{ scale: 1 }}
-                                    className="w-16 h-16 bg-green-50 text-green-500 rounded-full flex items-center justify-center mx-auto"
+                                    className="w-16 h-16 bg-white/10 text-white rounded-full flex items-center justify-center mx-auto"
                                 >
                                     <Send className="w-8 h-8" />
                                 </motion.div>
-                                <h2 className="font-display text-3xl text-dark-gray uppercase tracking-tight">¡Gracias por confirmar!</h2>
-                                <p className="font-serif italic text-gray-500">Hemos recibido tu respuesta con éxito.</p>
-                                <button
-                                    onClick={() => setIsSubmitted(false)}
-                                    className="text-taupe uppercase tracking-widest text-[10px] hover:underline"
-                                >
-                                    Enviar otra respuesta
-                                </button>
+                                <h2 className="font-display text-3xl text-white uppercase tracking-tight">¡Gracias por confirmar!</h2>
+                                <p className="font-serif italic text-white/70">Hemos recibido tu respuesta con éxito.</p>
                             </div>
                         ) : (
                             <>
                                 <div className="text-center mb-10 space-y-2">
-                                    <span className="text-[10px] uppercase tracking-[0.3em] text-taupe block">
+                                    <span className="text-[10px] uppercase tracking-[0.3em] text-white/60 block">
                                         ¿Nos acompañas?
                                     </span>
-                                    <h2 className="font-display text-4xl font-bold tracking-tight text-dark-gray">
+                                    <h2 className="font-display text-4xl font-bold tracking-tight text-white">
                                         CONFIRMAR ASISTENCIA
                                     </h2>
                                 </div>
 
                                 <form onSubmit={handleSubmit} className="space-y-6">
                                     <div className="space-y-2">
-                                        <label className="text-[10px] uppercase tracking-widest text-gray-400">Nombre Completo</label>
+                                        <label className="text-[10px] uppercase tracking-widest text-white/50">Nombre Completo</label>
                                         <input
                                             required
                                             type="text"
                                             value={name}
                                             onChange={(e) => setName(e.target.value)}
                                             placeholder="Nombre y Apellidos"
-                                            className="w-full bg-off-white border-b border-gray-300 p-3 text-dark-gray focus:outline-none focus:border-taupe transition-colors placeholder:text-gray-300 font-serif italic"
+                                            className="w-full bg-transparent border-b border-white/30 p-3 text-white focus:outline-none focus:border-white transition-colors placeholder:text-white/30 font-serif italic"
                                         />
                                     </div>
 
                                     <div className="space-y-2">
-                                        <label className="text-[10px] uppercase tracking-widest text-gray-400">Nota Especial</label>
+                                        <label className="text-[10px] uppercase tracking-widest text-white/50">Nota Especial</label>
                                         <textarea
                                             value={note}
                                             onChange={(e) => setNote(e.target.value)}
                                             placeholder="¿Alguna restricción alimentaria?"
                                             rows={2}
-                                            className="w-full bg-off-white border-b border-gray-300 p-3 text-dark-gray focus:outline-none focus:border-taupe transition-colors placeholder:text-gray-300 font-serif italic resize-none"
+                                            className="w-full bg-transparent border-b border-white/30 p-3 text-white focus:outline-none focus:border-white transition-colors placeholder:text-white/30 font-serif italic resize-none"
                                         />
                                     </div>
 
                                     <button
                                         type="submit"
                                         disabled={!name || isSubmitting}
-                                        className="w-full bg-dark-gray text-white py-4 uppercase tracking-[0.2em] text-xs font-medium hover:bg-taupe transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 mt-8"
+                                        className="w-full bg-white text-dark-gray py-4 uppercase tracking-[0.2em] text-xs font-medium hover:bg-taupe hover:text-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 mt-8"
                                     >
                                         <span>{isSubmitting ? "Enviando..." : "Enviar Confirmación"}</span>
                                         <Send className="w-3 h-3" />

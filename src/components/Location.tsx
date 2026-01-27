@@ -20,8 +20,9 @@ export default function Location() {
                         <IconReception className="w-8 h-8 md:w-10 md:h-10 text-white" />
                     </div>
 
-                    <h2 className="font-display text-4xl md:text-5xl uppercase tracking-widest">
-                        Recepción
+                    <h2 className="font-display text-4xl md:text-5xl uppercase tracking-widest flex flex-col items-center">
+                        <span className="text-xl md:text-2xl opacity-70 tracking-[0.3em] mb-1">Ceremonia y</span>
+                        <span className="font-normal normal-case text-5xl md:text-7xl -mt-2 md:-mt-4" style={{ fontFamily: 'var(--font-pinyon), cursive' }}>Recepción</span>
                     </h2>
 
                     <p className="font-serif italic text-xl opacity-90">

@@ -5,7 +5,7 @@ import { IconCeremony, IconToast, IconReception, IconParty } from "./Icons";
 
 export default function Agenda() {
     const events = [
-        { time: "3:30 PM", title: "Recepción", icon: IconReception },
+        { time: "3:30 PM", title: "Ceremonia y Recepción", icon: IconReception },
         { time: "3:45 PM", title: "Ceremonia Religiosa", icon: IconCeremony },
     ];
 

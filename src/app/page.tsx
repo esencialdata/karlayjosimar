@@ -1,10 +1,12 @@
 import Hero from "@/components/Hero";
 import SectionAbout from "@/components/SectionAbout"; // New Intro
 import DateHero from "@/components/DateHero"; // New DateHero component
+import Countdown from "@/components/Countdown";
 import Location from "@/components/Location"; // Events
 import Agenda from "@/components/Agenda";
 import DressCode from "@/components/DressCode";
 import RSVP from "@/components/RSVP";
+import DressCodeReference from "@/components/DressCodeReference";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -21,11 +23,15 @@ export default function Home() {
 
       <DateHero />
 
+      <Countdown />
+
       <Location />
 
       <Agenda />
 
       <DressCode />
+
+      <DressCodeReference />
 
       <RSVP />
 
