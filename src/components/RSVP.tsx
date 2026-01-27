@@ -1,13 +1,15 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, Gift, Mail } from "lucide-react";
+import { Send, Gift, Mail, X, Copy, Check } from "lucide-react";
 
 export default function RSVP() {
     const [name, setName] = useState("");
     const [note, setNote] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [showBankInfo, setShowBankInfo] = useState(false);
+    const [copied, setCopied] = useState(false);
 
     React.useEffect(() => {
         const submitted = localStorage.getItem("rsvpSubmitted");
@@ -47,6 +49,12 @@ export default function RSVP() {
         }
     };
 
+    const copyToClipboard = (text: string) => {
+        navigator.clipboard.writeText(text);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
+
     return (
         <section id="rsvp" className="w-full flex flex-col">
 
@@ -82,6 +90,7 @@ export default function RSVP() {
                         <motion.button
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
+                            onClick={() => setShowBankInfo(true)}
                             className="inline-flex items-center justify-center w-12 h-12 bg-taupe text-white rounded-full hover:bg-taupe/90 transition-colors shadow-lg"
                         >
                             <Mail className="w-5 h-5" strokeWidth={1.5} />
@@ -89,6 +98,85 @@ export default function RSVP() {
                     </div>
                 </motion.div>
             </div>
+
+            {/* Bank Info Modal */}
+            {showBankInfo && (
+                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        className="bg-white w-full max-w-sm rounded-2xl p-8 relative shadow-2xl overflow-hidden"
+                    >
+                        {/* Decorative Background Element */}
+                        <div className="absolute top-0 right-0 -transtaupe-y-1/2 transtaupe-x-1/2 w-32 h-32 bg-taupe/5 rounded-full blur-3xl pointer-events-none" />
+
+                        <button
+                            onClick={() => setShowBankInfo(false)}
+                            className="absolute top-4 right-4 p-2 text-gray-400 hover:text-dark-gray transition-colors"
+                        >
+                            <X className="w-5 h-5" />
+                        </button>
+
+                        <div className="text-center space-y-6">
+                            <div className="flex justify-center">
+                                <div className="w-16 h-16 bg-taupe/10 rounded-full flex items-center justify-center">
+                                    <Mail className="w-8 h-8 text-taupe" strokeWidth={1} />
+                                </div>
+                            </div>
+
+                            <div className="space-y-1">
+                                <h3 className="font-display text-2xl uppercase tracking-widest text-dark-gray">Datos Bancarios</h3>
+                                <div className="h-px w-12 bg-taupe/30 mx-auto" />
+                            </div>
+
+                            <div className="space-y-4 text-left font-sans">
+                                <div className="space-y-1">
+                                    <span className="text-[10px] uppercase tracking-widest text-gray-400">Banco</span>
+                                    <p className="text-sm font-medium text-dark-gray">BBVA BANCOMER</p>
+                                </div>
+
+                                <div className="space-y-1">
+                                    <span className="text-[10px] uppercase tracking-widest text-gray-400">Beneficiario</span>
+                                    <p className="text-sm font-medium text-dark-gray">KARLA LÓPEZ</p>
+                                </div>
+
+                                <div className="flex items-end justify-between border-b border-gray-100 pb-2">
+                                    <div className="space-y-1">
+                                        <span className="text-[10px] uppercase tracking-widest text-gray-400">Cuenta</span>
+                                        <p className="text-sm font-medium text-dark-gray tracking-wider">112 671 3009</p>
+                                    </div>
+                                    <button
+                                        onClick={() => copyToClipboard("1126713009")}
+                                        className="text-taupe hover:text-taupe/70 p-1 transition-colors"
+                                    >
+                                        {copied ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
+                                    </button>
+                                </div>
+
+                                <div className="flex items-end justify-between border-b border-gray-100 pb-2">
+                                    <div className="space-y-1">
+                                        <span className="text-[10px] uppercase tracking-widest text-gray-400">Cuenta CLABE</span>
+                                        <p className="text-sm font-medium text-dark-gray tracking-wider">012 680 01126713009 7</p>
+                                    </div>
+                                    <button
+                                        onClick={() => copyToClipboard("012680011267130097")}
+                                        className="text-taupe hover:text-taupe/70 p-1 transition-colors"
+                                    >
+                                        {copied ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
+                                    </button>
+                                </div>
+                            </div>
+
+                            <button
+                                onClick={() => setShowBankInfo(false)}
+                                className="w-full bg-dark-gray text-white py-4 rounded-xl text-xs uppercase tracking-widest font-medium hover:bg-taupe transition-colors duration-300"
+                            >
+                                Entendido
+                            </button>
+                        </div>
+                    </motion.div>
+                </div>
+            )}
 
 
             {/* RSVP Form Image Background Parallax */}
