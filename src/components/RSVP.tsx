@@ -122,12 +122,12 @@ export default function RSVP() {
                             </div>
                         ) : (
                             <>
-                                <div className="text-center mb-10 space-y-2">
-                                    <span className="text-[10px] uppercase tracking-[0.3em] text-white/60 block">
-                                        ¿Nos acompañas?
-                                    </span>
-                                    <h2 className="font-display text-4xl font-bold tracking-tight text-white">
-                                        CONFIRMAR ASISTENCIA
+                                <div className="text-center mb-10">
+                                    <h2 className="font-display text-4xl md:text-5xl text-white flex flex-col items-center gap-2">
+                                        <span className="uppercase tracking-[0.3em] text-lg md:text-2xl opacity-70">Confirmar</span>
+                                        <span className="text-7xl md:text-9xl -mt-4 md:-mt-6 font-normal" style={{ fontFamily: 'var(--font-pinyon), cursive' }}>
+                                            Asistencia
+                                        </span>
                                     </h2>
                                 </div>
 

@@ -139,10 +139,47 @@ export const IconParty = (props: LucideProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
     >
-        <circle cx="12" cy="12" r="10" />
-        <path d="M8 12h8" />
-        <path d="M12 8v8" />
-        <path d="m4.93 4.93 14.14 14.14" />
-        <path d="m14.14 4.93-14.14 14.14" />
+        <path d="M18 20L12 4L6 20H18Z" />
+        <circle cx="12" cy="3" r="1.5" />
+        <path d="M10 12h4" />
+        <path d="M8 16h8" />
+    </svg>
+);
+
+export const IconUtensils = (props: LucideProps) => (
+    <svg
+        {...props}
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+    >
+        <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+        <path d="M7 2v20" />
+        <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" />
+    </svg>
+);
+
+export const IconMusic = (props: LucideProps) => (
+    <svg
+        {...props}
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+    >
+        <path d="M9 18V5l12-2v13" />
+        <circle cx="6" cy="18" r="3" />
+        <circle cx="18" cy="16" r="3" />
     </svg>
 );

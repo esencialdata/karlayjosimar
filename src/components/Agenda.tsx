@@ -1,12 +1,16 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { IconCeremony, IconToast, IconReception, IconParty } from "./Icons";
+import { IconCeremony, IconToast, IconReception, IconParty, IconUtensils, IconMusic } from "./Icons";
 
 export default function Agenda() {
     const events = [
         { time: "3:30 PM", title: "Recepción", icon: IconReception },
         { time: "3:45 PM", title: "Ceremonia Religiosa", icon: IconCeremony },
+        { time: "5:00 PM", title: "Recepción Rompehielo", icon: IconToast },
+        { time: "6:00 PM", title: "Banquete", icon: IconUtensils },
+        { time: "7:15 PM", title: "Primer baile", icon: IconMusic },
+        { time: "7:30 PM", title: "Fiesta", icon: IconParty },
     ];
 
     return (
