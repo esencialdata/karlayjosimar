@@ -31,7 +31,7 @@ export default function Hero() {
                     className="relative w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] md:w-[320px] md:h-[320px] select-none mix-blend-screen drop-shadow-2xl"
                 >
                     <Image
-                        src="/monogram.svg"
+                        src="/monograma1.svg"
                         alt="K&J Monogram"
                         fill
                         className="object-contain"
