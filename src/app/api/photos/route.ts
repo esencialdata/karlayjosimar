@@ -10,12 +10,6 @@ cloudinary.config({
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
-    // Debug logging
-    console.log("API Route: Fetching photos...");
-    console.log("Cloud Name Configured:", !!process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME);
-    console.log("API Key Configured:", !!process.env.CLOUDINARY_API_KEY);
-    console.log("API Secret Configured:", !!process.env.CLOUDINARY_API_SECRET);
-
     try {
         const result = await cloudinary.api.resources({
             type: 'upload',
@@ -24,8 +18,6 @@ export async function GET() {
             direction: 'desc',
             sort_by: 'created_at',
         });
-
-        console.log(`API Route: Found ${result.resources.length} photos.`);
 
         const photos = result.resources.map((resource: any) => ({
             id: resource.public_id,
@@ -37,9 +29,6 @@ export async function GET() {
         return NextResponse.json(photos);
     } catch (error) {
         console.error('Error fetching photos from Cloudinary:', error);
-        return NextResponse.json({
-            error: 'Error fetching photos',
-            details: (error as Error).message
-        }, { status: 500 });
+        return NextResponse.json({ error: 'Error fetching photos' }, { status: 500 });
     }
 }
