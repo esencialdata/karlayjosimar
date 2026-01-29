@@ -74,7 +74,7 @@ export default function PhotoUpload() {
             formData.append("file", compressedBlob);
             // "guest_photos" folder and "unsigned" preset must be configured in Cloudinary
             formData.append("upload_preset", process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET || "ml_default");
-            formData.append("folder", "guest_photos");
+
 
             const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
             const response = await fetch(
@@ -86,7 +86,8 @@ export default function PhotoUpload() {
             );
 
             if (!response.ok) {
-                throw new Error("Upload failed");
+                const errorData = await response.json();
+                throw new Error(errorData.error?.message || "Upload failed");
             }
 
             setStatus("¡Foto compartida!");
@@ -98,7 +99,7 @@ export default function PhotoUpload() {
 
         } catch (error) {
             console.error("Error uploading photo:", error);
-            setStatus("Error al subir. Intenta de nuevo.");
+            setStatus(`Error: ${(error as Error).message}`);
         } finally {
             setUploading(false);
             event.target.value = "";
