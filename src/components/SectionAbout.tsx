@@ -36,10 +36,16 @@ export default function SectionAbout() {
                     className="flex flex-col items-center"
                 >
                     {/* Eyebrow: Straight "NOSOTROS" */}
-                    <div className="mb-16 md:mb-20 text-center">
-                        <span className="font-sans text-sm md:text-lg tracking-[0.4em] uppercase text-[#8C8884]">
-                            Nosotros
-                        </span>
+                    {/* Eyebrow: Arched Text "NOSOTROS" */}
+                    <div className="mb-12 md:mb-16 relative w-[200px] h-[60px] md:w-[280px] md:h-[80px] mx-auto">
+                        <svg viewBox="0 0 280 80" className="w-full h-full overflow-visible">
+                            <path id="curveNosotros" d="M 40,80 A 140,50 0 0,1 240,80" fill="transparent" />
+                            <text className="font-sans text-base md:text-3xl tracking-[0.4em] uppercase fill-[#8C8884]" textAnchor="middle">
+                                <textPath href="#curveNosotros" startOffset="50%">
+                                    Nosotros
+                                </textPath>
+                            </text>
+                        </svg>
                     </div>
 
                     {/* NamesLockup: Staggered Typography */}
