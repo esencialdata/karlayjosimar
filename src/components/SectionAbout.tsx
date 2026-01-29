@@ -14,7 +14,7 @@ export default function SectionAbout() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.2, ease: "easeOut" }}
                 viewport={{ once: true, margin: "-100px" }}
-                className="w-[85%] md:w-[60%] max-w-[600px] relative -mt-[12vh] z-20 shadow-2xl mx-auto"
+                className="w-[85%] md:w-[60%] max-w-[600px] relative -mt-8 md:-mt-[12vh] z-20 shadow-2xl mx-auto"
             >
                 <Image
                     src="/IMG_1822.jpg"
@@ -35,21 +35,11 @@ export default function SectionAbout() {
                     viewport={{ once: true }}
                     className="flex flex-col items-center"
                 >
-                    {/* Eyebrow: Arched "NOSOTROS" */}
-                    <div className="mb-8 md:mb-10 relative w-[200px] h-[60px] flex justify-center">
-                        <svg viewBox="0 0 200 60" className="w-full h-full absolute overflow-visible">
-                            <path id="curve" d="M 20,50 Q 100,10 180,50" fill="transparent" />
-                            <text width="200">
-                                <textPath
-                                    xlinkHref="#curve"
-                                    startOffset="50%"
-                                    textAnchor="middle"
-                                    className="font-sans text-sm md:text-lg tracking-[0.4em] uppercase fill-[#8C8884]"
-                                >
-                                    Nosotros
-                                </textPath>
-                            </text>
-                        </svg>
+                    {/* Eyebrow: Straight "NOSOTROS" */}
+                    <div className="mb-16 md:mb-20 text-center">
+                        <span className="font-sans text-sm md:text-lg tracking-[0.4em] uppercase text-[#8C8884]">
+                            Nosotros
+                        </span>
                     </div>
 
                     {/* NamesLockup: Staggered Typography */}

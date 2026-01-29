@@ -7,6 +7,7 @@ import Agenda from "@/components/Agenda";
 import DressCode from "@/components/DressCode";
 import RSVP from "@/components/RSVP";
 import DressCodeReference from "@/components/DressCodeReference";
+import SectionGallery from "@/components/SectionGallery";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -32,6 +33,8 @@ export default function Home() {
       <DressCode />
 
       <DressCodeReference />
+
+      <SectionGallery />
 
       <RSVP />
 

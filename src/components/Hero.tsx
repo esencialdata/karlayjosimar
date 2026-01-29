@@ -6,58 +6,89 @@ import { ChevronDown } from "lucide-react";
 
 export default function Hero() {
     return (
-        <section className="hero h-[100dvh] w-full relative overflow-hidden bg-black flex items-center justify-center">
-            {/* HeroImage: Imagen de fondo full-bleed con mejor posicionamiento */}
-            <div className="hero-image absolute inset-0 z-0 select-none">
+        <section className="relative w-full h-[100dvh] bg-neutral-900 flex flex-col items-center justify-center overflow-hidden">
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0">
                 <Image
                     src="/hero-new.jpg"
                     alt="Karla y Josimar"
                     fill
-                    // Mobile: top-center bias (to save heads). Desktop: center.
-                    className="object-cover object-[50%_25%] md:object-[50%_35%] opacity-90 contrast-[1.05]"
+                    className="object-contain object-center opacity-85"
                     priority
                     sizes="100vw"
                 />
+                {/* Subtle overlay for text readability */}
+                <div className="absolute inset-0 bg-black/25" />
             </div>
 
-            {/* OverlayContent */}
-            <div className="hero-overlay relative z-10 w-full h-full flex flex-col items-center justify-end pb-[15vh] md:justify-center md:pb-0 md:pt-[10vh]">
-
-                {/* Monogram SVG */}
+            {/* Content Content: Safe padded area */}
+            <div className="relative z-10 w-full h-full flex flex-col items-center justify-center py-8 px-4">
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1.5, ease: "easeOut" }}
-                    className="relative w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] md:w-[320px] md:h-[320px] select-none mix-blend-screen drop-shadow-2xl"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    className="flex flex-col items-center text-center text-white space-y-2 md:space-y-6"
                 >
-                    <Image
-                        src="/monograma1.svg"
-                        alt="K&J Monogram"
-                        fill
-                        className="object-contain"
-                        priority
-                    />
-                </motion.div>
+                    {/* Title: NOS CASAMOS */}
+                    <h1 className="font-[family-name:var(--font-playfair)] text-4xl sm:text-5xl md:text-8xl tracking-[0.2em] uppercase leading-none drop-shadow-lg">
+                        Nos Casamos
+                    </h1>
 
-                {/* ChevronIcon: Flecha minimalista */}
-                <motion.div
-                    className="chevron mt-2 md:mt-6 text-white/90 drop-shadow-md cursor-pointer"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1, duration: 1 }}
-                    onClick={() => {
-                        const intro = document.getElementById("intro");
-                        if (intro) intro.scrollIntoView({ behavior: "smooth" });
-                    }}
-                >
-                    <motion.div
-                        animate={{ y: [0, 8, 0] }}
-                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    >
-                        <ChevronDown className="w-6 h-6 md:w-8 md:h-8 opacity-80" strokeWidth={1} />
-                    </motion.div>
+                    {/* Subtitle: KARLA & JOSIMAR */}
+                    <h2 className="font-[family-name:var(--font-playfair)] text-lg sm:text-xl md:text-4xl tracking-[0.2em] uppercase flex items-center gap-3 drop-shadow-md pt-2">
+                        <span>Karla</span>
+                        <span className="text-xs md:text-2xl opactiy-80">&</span>
+                        <span>Josimar</span>
+                    </h2>
+
+                    {/* Date Line: SATURDAY | APRIL 04 | 2026 */}
+                    {/* Date Line: SATURDAY | APRIL 04 | 2026 */}
+                    <div className="flex items-center justify-center gap-4 md:gap-12 pt-6 md:pt-10 w-full max-w-4xl mx-auto">
+
+                        {/* Custom Separator & Saturday */}
+                        <div className="flex items-center gap-2 md:gap-4 flex-1 justify-end">
+                            <div className="h-[1px] bg-white/60 w-8 md:w-24"></div>
+                            <span className="font-[family-name:var(--font-inter)] text-[10px] md:text-lg tracking-[0.2em] text-white/90 uppercase">
+                                Saturday
+                            </span>
+                            <div className="h-[1px] bg-white/60 w-8 md:w-24"></div>
+                        </div>
+
+                        {/* Center Date Stack */}
+                        <div className="flex flex-col items-center justify-center leading-none px-2 md:px-6">
+                            <span className="font-[family-name:var(--font-playfair)] text-[10px] md:text-xl tracking-[0.15em] uppercase text-white mb-1 md:mb-2">
+                                April
+                            </span>
+                            <span className="font-[family-name:var(--font-playfair)] italic text-4xl md:text-7xl">
+                                04
+                            </span>
+                        </div>
+
+                        {/* Custom Separator & Year */}
+                        <div className="flex items-center gap-2 md:gap-4 flex-1 justify-start">
+                            <div className="h-[1px] bg-white/60 w-8 md:w-24"></div>
+                            <span className="font-[family-name:var(--font-inter)] text-[10px] md:text-lg tracking-[0.2em] text-white/90 uppercase">
+                                2026
+                            </span>
+                            <div className="h-[1px] bg-white/60 w-8 md:w-24"></div>
+                        </div>
+
+                    </div>
                 </motion.div>
             </div>
+
+            {/* Scroll Indicator - Desktop Only */}
+            <motion.div
+                className="absolute bottom-6 z-20 hidden md:block text-white/80 cursor-pointer"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.5, duration: 1 }}
+                onClick={() => {
+                    document.getElementById("intro")?.scrollIntoView({ behavior: "smooth" });
+                }}
+            >
+                <ChevronDown className="w-8 h-8 animate-bounce" />
+            </motion.div>
         </section>
     );
 }
