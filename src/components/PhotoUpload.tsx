@@ -77,6 +77,10 @@ export default function PhotoUpload() {
 
 
             const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+            if (!cloudName) {
+                throw new Error("Falta configurar el Cloud Name en las variables de entorno.");
+            }
+
             const response = await fetch(
                 `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
                 {
