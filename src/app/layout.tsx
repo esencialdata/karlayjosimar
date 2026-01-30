@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter, Playfair_Display, Pinyon_Script, Great_Vibes } from "next/font/google";
 import "./globals.css";
+import { MusicPlayer } from "@/components/MusicPlayer";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space",
@@ -61,6 +62,7 @@ export default function RootLayout({
         <div className="mx-auto w-full max-w-5xl bg-white min-h-screen shadow-2xl relative">
           {children}
         </div>
+        <MusicPlayer />
       </body>
     </html>
   );
