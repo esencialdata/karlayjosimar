@@ -217,6 +217,9 @@ export default function RSVP() {
                                             Asistencia
                                         </span>
                                     </h2>
+                                    <p className="font-serif italic text-white/80 text-sm md:text-base mt-6 max-w-md mx-auto">
+                                        Invitación Individual. No menores de edad, no niños.
+                                    </p>
                                 </div>
 
                                 <form onSubmit={handleSubmit} className="space-y-6">
