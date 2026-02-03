@@ -210,10 +210,10 @@ export default function RSVP() {
                             </div>
                         ) : (
                             <>
+                                <p className="font-serif italic text-white/80 text-sm md:text-base mb-4 text-left w-full">
+                                    Invitación Individual. No menores de edad, no niños.
+                                </p>
                                 <div className="text-center mb-10">
-                                    <p className="font-serif italic text-white/80 text-sm md:text-base mb-6 max-w-md text-left">
-                                        Invitación Individual. No menores de edad, no niños.
-                                    </p>
                                     <h2 className="font-display text-4xl md:text-5xl text-white flex flex-col items-center gap-2">
                                         <span className="uppercase tracking-[0.3em] text-lg md:text-2xl opacity-70">Confirmar</span>
                                         <span className="text-7xl md:text-9xl -mt-4 md:-mt-6 font-normal" style={{ fontFamily: 'var(--font-pinyon), cursive' }}>
