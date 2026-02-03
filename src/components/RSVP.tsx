@@ -210,7 +210,7 @@ export default function RSVP() {
                             </div>
                         ) : (
                             <>
-                                <p className="font-serif italic text-white/80 text-sm md:text-base mb-4 text-left w-full">
+                                <p className="font-serif italic text-white/80 text-sm md:text-base mb-4 text-left w-full -ml-6">
                                     Invitación Individual. No menores de edad, no niños.
                                 </p>
                                 <div className="text-center mb-10">
